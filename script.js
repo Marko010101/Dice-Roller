@@ -55,12 +55,16 @@ const switchPlayer = function () {
   player1El.classList.toggle('player--active');
 
   if (activePlayer === 1 && playing) {
+    btnRoll.classList.add('hidden');
+    btnHold.classList.add('hidden');
     rollingTimes = Math.trunc(Math.random() * 6) + 1;
     console.log(`I am planning to roll ${rollingTimes}-times`);
     // Disable "Hold" button for player--1
     document.getElementById('btnHold').disabled = true;
     setTimeout(autoPlayer, 700);
   } else {
+    btnRoll.classList.remove('hidden');
+    btnHold.classList.remove('hidden');
     // Enable "Hold" button for player--0
     document.getElementById('btnHold').disabled = false;
   }
